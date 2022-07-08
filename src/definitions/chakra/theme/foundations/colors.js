@@ -10,4 +10,8 @@ export default {
     main: {
         100: "#282c34",
     },
+    primary: {
+        100: "#fff1f0",
+        500: "#fe4536",
+    },
 };
