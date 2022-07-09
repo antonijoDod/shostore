@@ -9,12 +9,13 @@ import { setContext } from "apollo-link-context";
 let apolloClient: ApolloClient<NormalizedCacheObject> | null = null;
 
 const httpLink = createHttpLink({
-    uri: "https://shostored.myshopify.com/api/2022-07/graphql.json",
+    uri: `${process.env.NEXT_PUBLIC_SHOPIFY_SHOP_URL}`,
 });
 
 const middlewareLink = setContext(() => ({
     headers: {
-        "X-Shopify-Storefront-Access-Token": "648ef067bd944e0701857af440226615",
+        "X-Shopify-Storefront-Access-Token":
+            process.env.NEXT_PUBLIC_SHOPIFY_ACCESS_TOKEN,
     },
 }));
 

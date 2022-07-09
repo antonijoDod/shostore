@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import {
     Box,
     Heading,
@@ -15,10 +15,7 @@ import {
 import { formatPrice } from "@utils/price";
 import React from "react";
 import ProductOptions from "./ProductOptions";
-import {
-    GetProduct_product,
-    GetProduct_product_variants_edges_node_priceV2,
-} from "@graphqlTypes/GetProduct";
+import { GetProduct_product } from "@graphqlTypes/GetProduct";
 
 const ProductForm = ({ product }: { product: GetProduct_product }) => {
     // Initial default values for option - preselected product options
@@ -43,6 +40,7 @@ const ProductForm = ({ product }: { product: GetProduct_product }) => {
             options: allOptions,
             variantTitle: variant.node.title,
             variantPrice: variant.node.priceV2,
+            availableForSale: variant.node.availableForSale,
             variantQuantity: 1,
         };
     });
@@ -100,7 +98,6 @@ const ProductForm = ({ product }: { product: GetProduct_product }) => {
                         values={values}
                         selectedOptions={selectedOptions}
                         setOptions={setOptions}
-                        selectedVariant={selectedVariant}
                     />
                 ))}
             <Text my="8">{product.description}</Text>
@@ -151,7 +148,13 @@ const ProductForm = ({ product }: { product: GetProduct_product }) => {
                             >
                                 Stock:
                             </Td>
-                            <Td color="gray.600">In stock</Td>
+                            <Td color="gray.600">
+                                {selectedVariant.availableForSale ? (
+                                    <Box color="green.500">In stock</Box>
+                                ) : (
+                                    <Box color="red.500">Not available</Box>
+                                )}
+                            </Td>
                         </Tr>
                     </Tbody>
                 </Table>

@@ -1,14 +1,7 @@
 import { HStack, Stack, Box } from "@chakra-ui/react";
 import React, { useState, useEffect } from "react";
 
-const ProductOptions = ({
-    name,
-    values,
-    selectedOptions,
-    setOptions,
-    productInventory,
-    selectedVariant,
-}) => {
+const ProductOptions = ({ name, values, selectedOptions, setOptions }) => {
     return (
         <Stack
             className="mt-3"

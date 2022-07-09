@@ -144,6 +144,10 @@ export interface GetProduct_product_variants_edges_node {
    */
   title: string;
   /**
+   * Indicates if the product variant is available for sale.
+   */
+  availableForSale: boolean;
+  /**
    * Image associated with the product variant. This field falls back to the product image if no image is available.
    */
   image: GetProduct_product_variants_edges_node_image | null;

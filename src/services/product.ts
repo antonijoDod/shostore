@@ -36,6 +36,7 @@ export const GET_PRODUCT = gql`
                     node {
                         id
                         title
+                        availableForSale
                         image {
                             url
                             altText

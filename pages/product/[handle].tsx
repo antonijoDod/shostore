@@ -56,10 +56,6 @@ import { formatPrice } from "@utils/price";
 import { GetStaticPaths, GetStaticProps } from "next";
 
 const Product = ({ product }: { product: GetProduct_product }) => {
-    console.log(
-        "🚀 ~ file: [handle].tsx ~ line 59 ~ Product ~ product",
-        product,
-    );
     const toast = useToast();
 
     return (

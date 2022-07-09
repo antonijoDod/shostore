@@ -31,6 +31,12 @@
       "@components": [
         "src/components"
       ],
+      "@context/*": [
+        "src/context/*"
+      ],
+      "@context": [
+        "src/context"
+      ],
       "@utils/*": [
         "src/utils/*"
       ],
